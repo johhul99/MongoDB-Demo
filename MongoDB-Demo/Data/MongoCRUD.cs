@@ -15,7 +15,7 @@ namespace MongoDB_Demo.Data
             db = client.GetDatabase(database);
         }
 
-        //Post
+        //Create
         public async Task<List<Courses>> AddCourse(string table, Courses course)
         {
             var collection = db.GetCollection<Courses>(table);
@@ -23,7 +23,7 @@ namespace MongoDB_Demo.Data
             return collection.AsQueryable().ToList();
         }
 
-        //Put
+        //Update
         public async Task<List<Courses>> UpdateCourse(string table, string name, string description, string link, string category, string id)
         {
             var collection = db.GetCollection<Courses>(table);
@@ -41,7 +41,7 @@ namespace MongoDB_Demo.Data
             return await collection.Find(_ => true).ToListAsync();
         }
 
-        //Get
+        //Read
         public async Task<List<Courses>> GetAllCourses(string table)
         {
             var collection = db.GetCollection<Courses>(table);
@@ -49,7 +49,7 @@ namespace MongoDB_Demo.Data
             return courses;
         }
 
-        //GetById
+        //ReadById
         public async Task<Courses> GetCourseById(string table, string id)
         {
             var collection = db.GetCollection<Courses>(table);
